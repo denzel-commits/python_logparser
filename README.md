@@ -55,6 +55,7 @@ $ python app.py --help
 * -d, --logdir: absolute/relative path to log directory with log files to parse
 
 The "logfile" option is optional, "access.log" file to parse and analyze.
+
 The "logdir" option is optional, directory with "access.log" files to parse and analyze. All log files within this directory will be parsed.
 
 ---
