@@ -3,8 +3,8 @@ from src.log_parser import LogParser
 
 
 @click.command()
-@click.option("--logfile", help="Path to log file")
-@click.option("--logdir", help="Path to log dir, only if logfile is not provided")
+@click.option("-f", "--logfile", help="absolute/relative path to log file to parse")
+@click.option("-d", "--logdir", help="absolute/relative path to log directory with log files to parse")
 def parse(logfile, logdir):
     if logfile:
         print(f"Parse {logfile}")
