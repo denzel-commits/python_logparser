@@ -59,11 +59,11 @@ The "logfile" option is optional, "access.log" file to parse and analyze.
 
 The "logdir" option is optional, directory with "access.log" files to parse and analyze. All log files within this directory will be parsed.
 
-The "output" option is optional, file path. If specified will be used as destination for results. If not specified default file will be used "./results.json".
+The "output" option is optional, file path. If specified will be used as destination for results. If not specified default file will be used "results.json".
 
 ---
 
 # Usage examples
 
-* $ python app.py --logfile log/access.log
-* $ python app.py --logdir log
+* $ python app.py -f log/access.log -o results.json
+* $ python app.py -d log/

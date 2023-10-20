@@ -20,7 +20,7 @@ def parse_access_log(logfile):
 @click.command()
 @click.option("-f", "--logfile", help="path to log file to parse")
 @click.option("-d", "--logdir", help="path to log directory with log files to parse")
-@click.option("-o", "--output", default="./results.json", help="path to output json file")
+@click.option("-o", "--output", default="results.json", help="path to output json file")
 def parse(logfile, logdir, output):
     if logfile:
         data = parse_access_log(logfile)
