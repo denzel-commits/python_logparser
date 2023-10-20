@@ -1,5 +1,3 @@
-import json
-
 import click
 from src.log_parser import LogParser
 from src.utils import json_dump, print_dict

@@ -11,7 +11,7 @@ It can be used to get the following information:
 ---
 # Requirements
 
-Python version 3.9 or greater
+Python version 3.10 or greater
 
 ---
 
