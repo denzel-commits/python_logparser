@@ -51,12 +51,15 @@ $ python app.py --help
 
 "Apache2 webserver log parser" accepts 2 options, short alias and full name:
 
-* -f, --logfile: absolute/relative path to log file to parse
-* -d, --logdir: absolute/relative path to log directory with log files to parse
+* -f, --logfile: path to log file to parse
+* -d, --logdir: path to log directory with log files to parse
+* -o, --output: path to output file
 
 The "logfile" option is optional, "access.log" file to parse and analyze.
 
 The "logdir" option is optional, directory with "access.log" files to parse and analyze. All log files within this directory will be parsed.
+
+The "output" option is optional, file path. If specified will be used as destination for results. If not specified default file will be used "./results.json".
 
 ---
 
