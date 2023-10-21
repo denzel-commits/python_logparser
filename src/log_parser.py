@@ -46,8 +46,8 @@ class LogParser(BaseCommand):
 
     def get_long_requests(self, count=3):
         results = self.cmd_pipe_run(["grep", "-Eo", "(.*)[0-9]+$", self.file_path],
-                                   ["sort", "-t", " ", "-k9,9rn"],
-                                   ["head", f"-{count}"])
+                                    ["sort", "-t", " ", "-k9,9rn"],
+                                    ["head", f"-{count}"])
 
         return [self.parse_request((self.request_pattern()), request_log) for request_log in results]
 
