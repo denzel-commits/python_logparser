@@ -15,7 +15,7 @@ class LogParser(BaseCommand):
             "общее количество выполненных запросов": self.get_requests_count(),
             "количество запросов по HTTP-методам": self.get_methods_requests_count(),
             "топ 3 IP адресов, с которых были сделаны запросы": self.get_top_ip(count=3),
-            "топ 3 самых долгих запроса": self.get_long_requests(count=3),
+            "топ 3 самых долгих запросов": self.get_long_requests(count=3),
         }
 
         return output

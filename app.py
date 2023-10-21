@@ -1,6 +1,6 @@
 import click
-import glob
-from src.utils import json_dump, print_dict
+
+from src.utils import json_dump, print_dict, get_logs
 from src.log_parser import LogParser
 
 
@@ -11,16 +11,19 @@ from src.log_parser import LogParser
 def parse(logfile, logdir, output):
     if logfile:
         data = LogParser(logfile).parse_access_log()
-        print_dict(data)
-        json_dump(data, output)
-    elif logdir:
-        logfiles = glob.glob(logdir + 'access.log')
-        print("Logs found:", logfile)
 
-        for logfile in logfiles:
+        print_dict(data)
+        json_dump([data], output)
+
+    elif logdir:
+        data_list = []
+        for logfile in get_logs(logdir):
             data = LogParser(logfile).parse_access_log()
+
             print_dict(data)
-            json_dump(data, output)
+            data_list.append(data)
+
+        json_dump(data_list, output)
 
 
 if __name__ == "__main__":

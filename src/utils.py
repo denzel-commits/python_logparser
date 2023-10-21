@@ -1,7 +1,14 @@
 import json
+import glob
+from pathlib import Path
 
 
-def json_dump(obj: dict, filename: str) -> None:
+def get_logs(logdir):
+    logfiles = glob.glob(str(Path(logdir) / "access.log*"))
+    print("Logs found:", logfiles)
+    return logfiles
+
+def json_dump(obj: list[dict], filename: str) -> None:
     with open(filename, "w", encoding="UTF-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=4)
 
