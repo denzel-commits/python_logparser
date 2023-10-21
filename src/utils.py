@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def get_logs(logdir):
-    logfiles = glob.glob(str(Path(logdir) / "access.log*"))
+    logfiles = glob.glob(str(Path(logdir) / "access*.log"))
     print("Logs found:", logfiles)
     return logfiles
 

@@ -45,9 +45,10 @@ class LogParser(BaseCommand):
         return [line.split()[1] for line in result]
 
     def get_long_requests(self, count=3):
-        results = self.cmd_pipe_run(["grep", "-Eo", "(.*)[0-9]+$", self.file_path],
-                                    ["sort", "-t", " ", "-k9,9rn"],
-                                    ["head", f"-{count}"])
+        results = self.cmd_pipe_run(["awk", "{print $NF, $0}", self.file_path],
+                                    ["sort", "-n", "-k1,1rn"],
+                                    ["head", f"-{count}"],
+                                    ["cut", "-f2-", "-d", " "])
 
         return [self.parse_request((self.request_pattern()), request_log) for request_log in results]
 
