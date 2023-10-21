@@ -7,6 +7,7 @@ It can be used to get the following information:
 - Overall number of requests done
 - Requests count per each HTTP METHOD
 - TOP 3 IP addresses that do requests
+- TOP 3 longest requests
 
 ---
 # Requirements
@@ -49,7 +50,7 @@ $ python app.py --help
 
 # Options
 
-"Apache2 webserver log parser" accepts 2 options, short alias and full name:
+"Apache2 webserver log parser" accepts 3 options, short alias and full name:
 
 * -f, --logfile: path to log file to parse
 * -d, --logdir: path to log directory with log files to parse
