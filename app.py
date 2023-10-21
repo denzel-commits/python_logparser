@@ -1,18 +1,7 @@
 import click
-from src.log_parser import LogParser
+import glob
 from src.utils import json_dump, print_dict
-
-
-def parse_access_log(logfile):
-    print(f"Parse {logfile}")
-    parser = LogParser(logfile)
-    output = {
-        "общее количество выполненных запросов": parser.get_requests_count(),
-        "количество запросов по HTTP-методам": parser.get_methods_requests_count(),
-        "топ 3 IP адресов, с которых были сделаны запросы": parser.get_top_ip(count=3),
-    }
-
-    return output
+from src.log_parser import LogParser
 
 
 @click.command()
@@ -21,11 +10,17 @@ def parse_access_log(logfile):
 @click.option("-o", "--output", default="results.json", help="path to output json file")
 def parse(logfile, logdir, output):
     if logfile:
-        data = parse_access_log(logfile)
+        data = LogParser(logfile).parse_access_log()
         print_dict(data)
-        json_dump([data], output)
+        json_dump(data, output)
     elif logdir:
-        print(f"Parse {logdir}")
+        logfiles = glob.glob(logdir + 'access.log')
+        print("Logs found:", logfile)
+
+        for logfile in logfiles:
+            data = LogParser(logfile).parse_access_log()
+            print_dict(data)
+            json_dump(data, output)
 
 
 if __name__ == "__main__":
